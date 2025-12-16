@@ -123,11 +123,11 @@ fig, axes = plt.subplots(1, 2, figsize=(20, 14))
 
 axes[0].imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
 axes[0].set_title('Original Image', fontsize=14)
-axes[0].axis('off')
+axes[0].axis('on')
 
 axes[1].imshow(cv2.cvtColor(image_with_order, cv2.COLOR_BGR2RGB))
 axes[1].set_title(f'Column-Aware Sorting ({len(bounding_boxes_sorted)} boxes)\nGreen=Left Column | Orange=Right Column | Magenta=Boundary', fontsize=14)
-axes[1].axis('off')
+axes[1].axis('on')
 
 plt.tight_layout()
 plt.show()
