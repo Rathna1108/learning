@@ -4,7 +4,7 @@ import numpy as np
 
 # Load and preprocess
 # image = cv2.imread('textbook_images/page_003.jpg')
-image = cv2.imread('images/Dhingra ENT 8th Edition_Split_page-0006.jpg')
+image = cv2.imread('images/Dhingra ENT 8th Edition_Split_page-0007.jpg')
 
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 denoised = cv2.fastNlMeansDenoising(gray, None, h=10, templateWindowSize=7, searchWindowSize=21)
@@ -12,7 +12,7 @@ binary = cv2.adaptiveThreshold(denoised, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv
 binary_inv = cv2.bitwise_not(binary)
 
 # Morphological operations
-kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (20, 3))
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (25,15))
 dilated = cv2.dilate(binary_inv, kernel, iterations=1)
 
 # Find and filter contours
